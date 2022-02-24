@@ -20,5 +20,6 @@ from employee import views
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('employee/', include('employee.urls')),
+    path('institute/', include('institute.urls')),
     path('admin/', admin.site.urls),
 ]
