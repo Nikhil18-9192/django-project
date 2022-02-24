@@ -14,5 +14,5 @@ class Classroom(models.Model):
 class Student(models.Model):
     name = models.CharField(max_length=200)
     address = models.CharField(max_length=1000)
-    percentage = models.CharField(max_length=10)
+    percentage = models.IntegerField()
     classroom_id = models.ForeignKey(Classroom, on_delete=models.CASCADE)
