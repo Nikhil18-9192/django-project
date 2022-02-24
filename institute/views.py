@@ -11,11 +11,13 @@ def get_all_students(request):
     student_list = Student.objects.all().select_related('classroom_id')
     data = []
     for student in student_list:
+
         resp = {
             "name": student.name,
             "address": student.address,
             "percentage": student.percentage,
-            "classroom": student.classroom_id.classroom_name
+            "classroom": student.classroom_id.classroom_name,
+            "classroom_id": student.classroom_id.id
         }
         data.append(resp)
     return HttpResponse(json.dumps(data), content_type="application/json")
@@ -31,7 +33,8 @@ def get_sutdent_of_high_percentage(request):
             "name": student.name,
             "address": student.address,
             "percentage": student.percentage,
-            "classroom": student.classroom_id.classroom_name
+            "classroom": student.classroom_id.classroom_name,
+            "classroom_id": student.classroom_id.id
         }
 
     return HttpResponse(json.dumps(resp), content_type="application/json")
@@ -47,7 +50,8 @@ def get_sutdent_of_low_percentage(request):
             "name": student.name,
             "address": student.address,
             "percentage": student.percentage,
-            "classroom": student.classroom_id.classroom_name
+            "classroom": student.classroom_id.classroom_name,
+            "classroom_id": student.classroom_id.id
         }
 
     return HttpResponse(json.dumps(resp), content_type="application/json")
