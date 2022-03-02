@@ -136,3 +136,26 @@ def update_classroom(request, id):
         data.save()
 
     return HttpResponse({'message: updated'}, content_type="application/json")
+
+
+def student_by_address(request):
+    if request.method == 'GET':
+        data = serializers.serialize(
+            'json', Student.objects.filter(address='pune'))
+        print(data)
+
+    return HttpResponse(data, content_type="application/json")
+
+
+def get_all_students_classroom_count(request):
+    if request.method == 'GET':
+        data = Student.objects.all().values(
+            'classroom_id')
+        count = 0
+        id = 0
+        for item in data:
+            if item['classroom_id'] != id:
+                id = item['classroom_id']
+                count = count + 1
+
+    return HttpResponse(count, content_type="application/json")

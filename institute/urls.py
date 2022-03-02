@@ -19,4 +19,8 @@ urlpatterns = [
          name='get_all_classroom'),
     path('classroom_update/<int:id>',
          views.update_classroom, name='update_classroom'),
+    path('get_student_by_address',
+         views.student_by_address, name='student_by_address'),
+    path('get_student_classroom_count',
+         views.get_all_students_classroom_count, name='get_all_students_classroom_count'),
 ]
