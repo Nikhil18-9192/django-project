@@ -21,5 +21,6 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('employee/', include('employee.urls')),
     path('institute/', include('institute.urls')),
+    path('emp/', include('restApi.urls')),
     path('admin/', admin.site.urls),
 ]
